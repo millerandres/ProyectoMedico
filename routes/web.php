@@ -18,3 +18,27 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//speciality
+
+	Route::middleware(['auth','admin'])->namespace('Admin')->group(function(){
+
+		Route::get('/specialties','SpecialtyController@index');
+		Route::get('/specialties/create', 'SpecialtyController@create');
+		Route::get('/specialties/{speciality}/edit', 'SpecialtyController@edit');
+
+		Route::post('/specialties', 'SpecialtyController@store');
+		Route::put('/specialties/{speciality}', 'SpecialtyController@update');
+		Route::delete('/specialties/{speciality}', 'SpecialtyController@destroy');
+
+		//Doctors
+		Route::resource('doctors','DoctorController'); //este metodo me crea multiples rutas
+
+		//patient
+		Route::resource('patients','PatientController'); //este metodo me crea multiples rutas
+
+	});
+
+
+
+
