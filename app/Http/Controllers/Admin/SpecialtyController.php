@@ -64,10 +64,7 @@ class SpecialtyController extends Controller
         public function update(Request $request,Speciality $specialty)
     {
 
-    	//validaciones al lado del servidor
-    	//$this->performValidation();
-
-
+    	
 
 		$specialty->name = $request->input('name');   
 		$specialty->description = $request->input('description'); 	
@@ -86,22 +83,6 @@ class SpecialtyController extends Controller
         return redirect('/specialties')->with(compact('notification'));;;
     }
 
-    private function performValidation()
-    {
-
-                //validaciones al lado del servidor
-        $rules = [
-            'name' => 'required|min:3'
-        ];
-        $messages = [
-
-            'name.required' => 'Nombre requerido',
-            'name.min' => 'debe tener como minimo 3 caracteres',
-        ];
-
-        $this->validate($request,$rules,$messages);
-
-
-    }
+   
 
 }

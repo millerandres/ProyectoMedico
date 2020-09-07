@@ -21,15 +21,20 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //speciality
 
-	Route::middleware(['auth','admin'])->namespace('Admin')->group(function(){
+		Route::middleware(['auth','admin'])->namespace('Admin')->group(function(){
 
+/*
 		Route::get('/specialties','SpecialtyController@index');
 		Route::get('/specialties/create', 'SpecialtyController@create');
 		Route::get('/specialties/{speciality}/edit', 'SpecialtyController@edit');
 
 		Route::post('/specialties', 'SpecialtyController@store');
 		Route::put('/specialties/{speciality}', 'SpecialtyController@update');
-		Route::delete('/specialties/{speciality}', 'SpecialtyController@destroy');
+		Route::delete('/specialties/{speciality}', 'SpecialtyController@destroy');*/
+
+
+		//Specialties
+		Route::resource('specialties','SpecialtyController');
 
 		//Doctors
 		Route::resource('doctors','DoctorController'); //este metodo me crea multiples rutas
@@ -38,6 +43,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 		Route::resource('patients','PatientController'); //este metodo me crea multiples rutas
 
 	});
+
+
+		Route::middleware(['auth','doctor'])->namespace('Doctor')->group(function(){
+			Route::get('/schedule','ScheduleController@edit');
+			Route::get('/schedule','ScheduleController@store');
+
+		});
 
 
 

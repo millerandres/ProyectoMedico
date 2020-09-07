@@ -32,7 +32,7 @@
           @csrf
      <div form-group>
        <label for="name">Nombre de la especialidad</label>
-       <input type="" name="name" class="form-control" value="{{old('name')}}" >
+       <input type="" name="name" class="form-control" >
      </div> 
 
       <div form-group>

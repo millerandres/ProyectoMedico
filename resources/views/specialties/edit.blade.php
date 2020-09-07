@@ -11,7 +11,7 @@
         </div>
         <div class="col text-right">
           <a href="{{url('specialties')}}" class="btn btn-sm btn-default">
-          	Cancelar y volver
+            Cancelar y volver
           </a>
         </div>
       </div>
@@ -29,19 +29,21 @@
         @endif
 
         <form action="{{url('specialties/'.$specialty->id)}}" method="post">
+          @csrf
           @method('PUT')
-           @csrf
-        
      <div form-group>
-       <label for="name">Nombre de la especialidad</label>
-       <input type="" name="name" class="form-control" value="{{old('name', $specialty->name)}}" required>
+       <label for="name">Nombre Especialidad</label>
+       <input type="" name="name" class="form-control" value="{{old('name',$specialty->name)}}" >
      </div> 
 
       <div form-group>
-       <label for="description">Descripcion</label>
-       <input type="" name="description" class="form-control" value="{{old('description', $specialty->description)}}">
+       <label for="email">Descripcion</label>
+       <input type="" name="description" class="form-control" value="{{old('description',$specialty->description)}}" >
      </div> 
-     <button type="submit" class="btn btn-primary">Actualizar</button>
+
+     
+
+     <button type="submit" class="btn btn-primary">Guardar</button>
  </form>
 
      </div>
