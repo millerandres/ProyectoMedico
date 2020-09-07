@@ -36,8 +36,8 @@ class ScheduleController extends Controller
         		'active' => in_array($i, $active),
 	            'morning_start' => $morning_start[$i],
 	            'morning_end' => $morning_end[$i],
-	            'afternoon_start' $afternoon_start[$i],
-	            'afternoon_end' $afternoon_end[$i]
+	            'afternoon_start' => $afternoon_start[$i],
+	            'afternoon_end' => $afternoon_end[$i]
         	 ]
 
     	);
