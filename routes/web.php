@@ -47,7 +47,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 		Route::middleware(['auth','doctor'])->namespace('Doctor')->group(function(){
 			Route::get('/schedule','ScheduleController@edit');
-			Route::get('/schedule','ScheduleController@store');
+			Route::post('/schedule','ScheduleController@store');
 
 		});
 
